@@ -36,9 +36,14 @@ public class WebTest {
     @Test
     public void checkingLinks(){
         mts.get("https://www.mts.by");
+        WebDriverWait wait = new WebDriverWait(mts, Duration.ofSeconds(10));
 
         mts.findElement(By.xpath("//div[@class='cookie__buttons']//button[@class='btn btn_black cookie__ok']")).click();
         mts.findElement(By.xpath("//div[@class='pay__wrapper']//a")).click();
+        assertThat(wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='breadcrumbs__wrapper']//ul[@class='breadcrumbs__list']" +
+                        "//li[@class='breadcrumbs__item']//span[@class='breadcrumbs__link']"))) != null)
+                .isEqualTo(true);
     }
 
     @Test
@@ -49,4 +54,7 @@ public class WebTest {
         mts.findElement(By.id("connection-email")).sendKeys("ds@mail.ru");
         mts.findElement(By.xpath("//div[@class='pay__forms']//form[@class='pay-form opened']//button[@class='button button__default ']")).click();
     }
+
+//    @Test
+ //   public void
 }
