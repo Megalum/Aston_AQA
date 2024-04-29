@@ -153,21 +153,21 @@ public class WebTest {
 
         WebDriver element = mts.switchTo().frame(wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[@class='bepaid-app__container']//iframe[@class='bepaid-iframe']"))));
-        WebDriverWait w = new WebDriverWait(element, Duration.ofSeconds(10));
-        assertThat(w.until(ExpectedConditions.visibilityOfElementLocated(
+        WebDriverWait waitWindow = new WebDriverWait(element, Duration.ofSeconds(10));
+        assertThat(waitWindow.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//span[@class='pay-description__text']/parent::div[@class='payment-page__order-description pay-description']"))).getText())
                 .isEqualTo("10.00 BYN\n" +
                         "Оплата: Услуги связи Номер:375297777777");
 
-        assertThat(w.until(ExpectedConditions.visibilityOfElementLocated(
+        assertThat(waitWindow.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@class='card-page__card']//button[@class='colored disabled']"))).getText())
                 .isEqualTo("Оплатить 10.00 BYN");
 
-        assertThat(w.until(ExpectedConditions.visibilityOfElementLocated(
+        assertThat(waitWindow.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@class='row ng-tns-c60-0 ng-star-inserted']/parent::div[@class='card ng-tns-c60-0']"))).getText())
                 .isEqualTo("Номер карты\nСрок действия\nCVC\nИмя держателя (как на карте)");
 
-        assertThat(w.until(ExpectedConditions.visibilityOfElementLocated(
+        assertThat(waitWindow.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//div[@class='cards-brands cards-brands__container ng-tns-c60-0 ng-trigger ng-trigger-brandsState ng-star-inserted']" +
                         "/descendant::img[@class='ng-tns-c60-0 ng-star-inserted']"))) != null)
                 .isEqualTo(true);
