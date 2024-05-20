@@ -16,8 +16,8 @@ public class TestListener implements TestWatcher {
         );
 
         Allure.addAttachment("Логи после падения теста:", String.valueOf(Abstract.mts.manage().logs().get(LogType.BROWSER).getAll()));
-        /*WebDriverManager.chromedriver().quit();
-        Abstract.mts.quit();*/
+        WebDriverManager.chromedriver().quit();
+        Abstract.mts.quit();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class TestListener implements TestWatcher {
         );
 
         Allure.addAttachment("Логи после успешного прохождения теста:", String.valueOf(Abstract.mts.manage().logs().get(LogType.BROWSER).getAll()));
-        /*WebDriverManager.chromedriver().quit();
-        Abstract.mts.quit();*/
+        WebDriverManager.chromedriver().quit();
+        Abstract.mts.quit();
     }
 }

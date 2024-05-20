@@ -13,8 +13,8 @@ public class WebTest extends Abstract {
 
     @Test
     public void checkingName(){
-        /*assertNotNull(wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.xpath("//div[@class='pay__wrapper']//h2"))));*/
+        assertNotNull(wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='pay__wrapper']//h2"))));
     }
 
     @Test
